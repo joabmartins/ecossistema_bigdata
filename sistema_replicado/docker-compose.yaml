@@ -1,0 +1,16 @@
+services:
+  china_srv:
+    build:
+      context: ./china_srv
+      dockerfile: Dockerfile
+    volumes:
+      - ./data:/data
+    container_name: china_srv
+
+  euro_srv:
+    build:
+      context: ./euro_srv
+      dockerfile: Dockerfile
+    volumes:
+      - ./data:/data
+    container_name: euro_srv
