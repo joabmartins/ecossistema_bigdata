@@ -1,0 +1,14 @@
+# Usa uma imgem base oficial do python
+FROM python:3.9-slim
+
+# Define o diretório de trabalho dentro do container
+WORKDIR /app
+
+# Instala as dependência
+RUN pip install --no-cache-dir pandas
+
+# Copia os arquivos da aplicação
+COPY app_eu.py app.py
+
+# Comando para executar a aplicação
+ENTRYPOINT ["python", "app.py"]
