@@ -1,0 +1,10 @@
+services:
+  spark-app-filter:
+    image: jupyter/pyspark-notebook:latest
+    container_name: spark-app-filter
+    command: spark-submit --master local[*] /home/jovyan/analise_generos.py
+    volumes: 
+      - ../dados/filmes.csv:/home/jovyan/filmes.csv
+      - ./analise_generos.py:/home/jovyan/analise_generos.py
+    ports:
+      - "4040:4040"
