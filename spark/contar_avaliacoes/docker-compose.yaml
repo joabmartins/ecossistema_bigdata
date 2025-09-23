@@ -1,0 +1,16 @@
+services:
+  spark-app-count:
+    image: jupyter/pyspark-notebook:latest
+    container_name: spark-app-count
+    command: spark-submit --master local[*] /home/jovyan/filmes_processamento.py
+    volumes: 
+      - ../dados/filmes.csv:/home/jovyan/filmes.csv
+      - ./filmes_processamento.py:/home/jovyan/filmes_processamento.py
+    ports:
+      - "4040:4040"  
+    
+
+    
+
+
+
