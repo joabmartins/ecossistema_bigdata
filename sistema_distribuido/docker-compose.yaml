@@ -19,3 +19,4 @@ services:
     container_name: worker2-node
     hostname: worker2-node
     command: sh -c "echo 'Worker node 2 executando. '&& sleep infinity"
+    
