@@ -22,6 +22,6 @@ print(grupos_embaralhados)
 # 3. Fase de redução 
 frequencia_palavras = {}
 for chave, lista_valores in grupos_embaralhados.items():
-    frequencia_palavras[chave = sum(lista_valores)]
+    frequencia_palavras[chave] = sum(lista_valores)
 print("\n ---RREsultado de redução ---")
 print(frequencia_palavras)
