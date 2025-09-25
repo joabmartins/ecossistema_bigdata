@@ -7,14 +7,14 @@ spark = SparkSession.builder \
 .getOrCreate()
 
 # 2. Lê arquivo csv
-df = spark.read.csv("filme.csv", header=True, inferSchema=True)
+df = spark.read.csv("filmes.csv", header=True, inferSchema=True)
 
 # 3. Obtem filmes com nota acima de 4
 df_altas_avaliacoes = df.filter(df["Avaliacao"] > 4.0)
 
 # 4. Divide a coluna genero
 df_generos_array = df_altas_avaliacoes.withColumn(
-    "genero_individual",
+    "genero_array",
     split(df_altas_avaliacoes.genero, ";")
 )
 
@@ -25,7 +25,7 @@ df_generos_explode = df_generos_array.withColumn(
 )
 
 # 6. Agrupa os dados por cada genero e conta a frequencia
-df_resultado = df_generos_explode.group8y("genero_individual") \
+df_resultado = df_generos_explode.groupBy("genero_individual") \
 .agg(count("*").alias("total_filmes")) \
 .orderBy("total_filmes", ascending=False) 
 
