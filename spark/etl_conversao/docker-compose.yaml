@@ -1,0 +1,10 @@
+services:
+  spark-app-etl:
+    image: jupyter/pyspark-notebook:latest
+    container_name: spark-app-etl
+    command: spark-submit --master local[*] /home/jovyan/conversao_monetaria.py
+    volumes: 
+      - ../dados:/home/jovyan/dados
+      - ./conversao_monetaria.py:/home/jovyan/conversao_monetaria.py
+    ports:
+      - "4040:4040"
